@@ -1,0 +1,30 @@
+<div class="login-container">
+    <div class="app-label">
+        Forum APP
+    </div>
+    <mat-card>
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Bem-vindo</mat-card-subtitle>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+                <p>Por favor loge-se para continuar</p>
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Usuário" name="username" formControlName="username" required>
+                    <mat-error *ngIf="isFieldInvalid('username')">
+                        Por favor informe seu nome de usuario
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="password" placeholder="senha" formControlName="password" required>
+                    <mat-error *ngIf="isFieldInvalid('password')">
+                        Por favor informe sua senha
+                    </mat-error>
+                </mat-form-field>
+                <div class="btn-login-container">
+                    <button mat-raised-button color="primary" type="submit">Login</button>
+                    <mat-spinner *ngIf="busyLoading == true" diameter=20></mat-spinner>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

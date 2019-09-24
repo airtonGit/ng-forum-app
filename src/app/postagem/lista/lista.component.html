@@ -1,0 +1,16 @@
+<div class="basic-container">
+    <mat-card>
+        <mat-card-title>Postagens</mat-card-title>
+    </mat-card>
+        <mat-expansion-panel *ngFor="let postagem of postagens">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{postagem.titulo}}
+            </mat-panel-title>
+            <mat-panel-description class='direta'>
+                {{postagem.criado | date :'dd/MMM/yy HH:mm' :'pt' }}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-list-item>{{postagem.corpo}}</mat-list-item>
+    </mat-expansion-panel>
+</div>

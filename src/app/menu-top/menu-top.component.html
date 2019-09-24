@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <div class="home-btn-container">
+        <span>Forum App</span>
+        <button mat-raised-button [routerLink]="['/']" routerLinkActive="router-link-active" >Postagens</button>
+        <button *ngIf="logadoStatus == true" mat-raised-button [routerLink]="['/postagens/nova']" routerLinkActive="router-link-active" >Nova Postagem</button>
+        <button disabled *ngIf="logadoStatus == false" mat-raised-button [routerLink]="['/']" routerLinkActive="router-link-active" >Nova Postagem</button>
+    </div>
+    <div class="login-btn-container">
+        <div>{{nome}}</div>
+        <button *ngIf="logadoStatus == false" mat-raised-button [routerLink]="['/login']" routerLinkActive="router-link-active">Login</button>
+        <button *ngIf="logadoStatus == true" mat-raised-button (click)="logoff()" >Logoff</button>
+    </div>
+</mat-toolbar>
